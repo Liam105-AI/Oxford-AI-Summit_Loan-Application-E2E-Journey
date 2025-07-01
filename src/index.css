@@ -2,41 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Collaborative Lending Experience Design System
+Rich jade aesthetic with warm accents for premium financial experience
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Rich jade and warm accent palette */
+    --background: 35 8% 96%;
+    --foreground: 162 35% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 35 15% 98%;
+    --card-foreground: 162 35% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 15% 98%;
+    --popover-foreground: 162 35% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep jade green as primary */
+    --primary: 162 45% 22%;
+    --primary-foreground: 35 25% 96%;
+    --primary-glow: 162 55% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm cream secondary */
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 162 35% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted jade tones */
+    --muted: 162 15% 85%;
+    --muted-foreground: 162 20% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm gold accent */
+    --accent: 40 65% 75%;
+    --accent-foreground: 162 35% 12%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 35 25% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 162 15% 82%;
+    --input: 162 8% 90%;
+    --ring: 162 45% 22%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium gradient system */
+    --gradient-jade: linear-gradient(135deg, hsl(162 45% 22%), hsl(162 55% 35%));
+    --gradient-warm: linear-gradient(135deg, hsl(40 65% 75%), hsl(35 45% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(162 45% 22%) 0%, hsl(162 55% 28%) 50%, hsl(40 35% 45%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(35 15% 98%), hsl(162 8% 94%));
+
+    /* Elegant shadows with jade tints */
+    --shadow-jade: 0 10px 40px -10px hsl(162 45% 22% / 0.3);
+    --shadow-warm: 0 8px 25px -8px hsl(40 65% 75% / 0.4);
+    --shadow-premium: 0 20px 60px -15px hsl(162 45% 22% / 0.2), 0 8px 25px -8px hsl(40 65% 75% / 0.1);
+
+    /* Smooth premium transitions */
+    --transition-premium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 

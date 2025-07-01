@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -62,6 +63,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-jade': 'var(--gradient-jade)',
+				'gradient-warm': 'var(--gradient-warm)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-subtle': 'var(--gradient-subtle)'
+			},
+			boxShadow: {
+				'jade': 'var(--shadow-jade)',
+				'warm': 'var(--shadow-warm)',
+				'premium': 'var(--shadow-premium)'
+			},
+			transitionTimingFunction: {
+				'premium': 'cubic-bezier(0.4, 0, 0.2, 1)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
