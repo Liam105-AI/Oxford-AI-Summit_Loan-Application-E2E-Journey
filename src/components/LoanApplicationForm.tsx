@@ -108,12 +108,50 @@ const LoanApplicationForm = () => {
     }
   };
 
+  const generateApplicationId = () => {
+    const randomNumber = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    return `LOAN2024${randomNumber}`;
+  };
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    
+    try {
+      const applicationId = generateApplicationId();
+      const webhookData = {
+        applicationId,
+        fullName: formData.fullName,
+        age: parseInt(formData.age),
+        annualIncome: formData.annualIncome,
+        employmentType: formData.employmentType,
+        employmentDuration: parseInt(formData.employmentDuration),
+        loanAmount: formData.loanAmount,
+        loanPurpose: formData.loanPurpose,
+        monthlyDebtPayments: formData.monthlyDebtPayments,
+        creditScore: formData.creditScore ? parseInt(formData.creditScore) : null,
+        bankAccountAge: formData.bankAccountAge,
+        submissionDate: new Date().toISOString()
+      };
+
+      const response = await fetch('https://hook.eu2.make.com/30lfttesd59nswamvznulhsmvdfgumyd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      // You could add error handling here
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -126,7 +164,7 @@ const LoanApplicationForm = () => {
               Your Collaborative Journey Begins!
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Thank you for choosing Experience Financial Partners. Your application has been received and we're excited to partner with you on this financial journey.
+              Your application has been submitted! You'll receive updates at every step of our collaborative process.
             </p>
           </div>
           <div className="bg-card p-6 rounded-lg shadow-jade mb-8">
