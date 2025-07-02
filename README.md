@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# 🤖 Intelligent Multi-Agent Loan Processing System
 
-## Project info
+[![TypeScript](https://img.shields.io/badge/TypeScript-97.1%25-blue)]() [![CSS](https://img.shields.io/badge/CSS-2.0%25-1572B6)]() [![Deployed](https://img.shields.io/badge/Status-Live-brightgreen)]()
 
-**URL**: https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821
+## 🌟 Overview
 
-## How can I edit this code?
+An enterprise-grade AI-powered loan processing pipeline that combines multiple intelligent agents, workflow automation, and modern web technologies to provide sophisticated risk assessment and automated stakeholder communication.
 
-There are several ways of editing your application.
+**Live Demo**: [https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821](https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821)
 
-**Use Lovable**
+## 🏗️ System Architecture
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821) and start prompting.
+Frontend (Lovable/React) → Make.com Workflow → Lyzr AI Agents → Email Integration
+↓                         ↓                    ↓              ↓
+13-Field Form → Webhook → Risk Intelligence → Decision Analysis → Stakeholder Communication
 
-Changes made via Lovable will be committed automatically to this repo.
+### **Technology Stack:**
+- **Frontend**: Lovable.dev (React + TypeScript + Tailwind CSS)
+- **AI Intelligence**: Dual Lyzr agents with specialized roles
+- **Workflow Orchestration**: Make.com (5-module automation pipeline)
+- **Data Processing**: Custom regex-based text parsing
+- **Communication**: Gmail integration for automated stakeholder routing
 
-**Use your preferred IDE**
+## ✨ Key Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- 📝 **13-Field Comprehensive Application Form** - Professional loan application with validation
+- 🤖 **Dual AI Agent System**:
+  - **Risk Intelligence Agent** (ID: 6863ee3906bcd0ccc1a73458) - Analyzes financial risk factors
+  - **Decision Explainer Agent** (ID: 68640158c781c1fdd3a67701) - Provides reasoning and next steps
+- ⚡ **Real-time Processing** - Immediate analysis and stakeholder notification
+- 📊 **Structured Output** - Parsed analysis with confidence scoring
+- 📧 **Automated Communication** - Professional email delivery to stakeholders
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🔄 Workflow Process
 
-Follow these steps:
+1. **Application Submission** - User completes 13-field loan application
+2. **Webhook Trigger** - Make.com receives form data via webhook
+3. **Risk Analysis** - Lyzr Risk Intelligence Agent evaluates application
+4. **Decision Explanation** - Second agent provides reasoning and recommendations
+5. **Text Processing** - Custom parser extracts structured sections from AI output
+6. **Stakeholder Notification** - Automated email sent to relevant parties
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🧠 AI Agent Capabilities
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Risk Intelligence Agent
+- Financial data analysis
+- Risk factor identification
+- Confidence scoring
+- Regulatory compliance checking
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Decision Explainer Agent  
+- Clear reasoning articulation
+- Next steps recommendation
+- Stakeholder action items
+- Professional communication formatting
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🛠️ Technical Implementation
+
+- **Frontend**: Modern React with TypeScript for type safety
+- **Styling**: Tailwind CSS for responsive, professional design
+- **Integration**: RESTful API communication with Make.com
+- **Processing**: Regex-based HTML content extraction
+- **Email**: Gmail API integration for stakeholder communication
+
+## 📈 System Status
+
+- ✅ **Fully Operational** - Complete end-to-end processing
+- ✅ **Tested** - Successfully processing loan applications
+- ✅ **Deployed** - Live on Lovable platform
+- ✅ **Email Integration** - Confirmed delivery to stakeholders
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js & npm
+- Make.com account with workflow access
+- Lyzr account with agent access
+- Gmail account for notifications
+
+### Installation
+```bash
+git clone https://github.com/Liam105-AI/jade-loan-collaborate-now.git
+cd jade-loan-collaborate-now
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+### Future Enhancements
+- Supabase database integration for application persistence
+- Advanced analytics dashboard
+- Multi-language support
+- Enhanced security features
+- Mobile application version
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### **Developer**
+Built as part of the Oxford AI Summit Challenge by Liam - showcasing enterprise-grade multi-agent system development.
