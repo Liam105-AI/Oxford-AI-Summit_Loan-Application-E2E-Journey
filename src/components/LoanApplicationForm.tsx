@@ -133,7 +133,7 @@ const LoanApplicationForm = () => {
         submissionDate: new Date().toISOString()
       };
 
-      const response = await fetch('https://hook.eu2.make.com/30lfttesd59nswamvznulhsmvdfgumyd?fullName=John%20Smith&age=35&income=75000&creditScore=720&employment=Full-time', {
+      const response = await fetch('https://hook.eu2.make.com/30lfttesd59nswamvznulhsmvdfgumyd', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
