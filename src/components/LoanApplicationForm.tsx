@@ -15,9 +15,12 @@ interface FormData {
   employmentDuration: string;
   loanAmount: string;
   loanPurpose: string;
+  monthlyIncome: string;
   monthlyDebtPayments: string;
-  creditScore: string;
   bankAccountAge: string;
+  previousLoansCount: string;
+  latePayments: string;
+  creditScore: string;
 }
 
 interface FormErrors {
@@ -36,13 +39,16 @@ const LoanApplicationForm = () => {
     employmentDuration: '',
     loanAmount: '',
     loanPurpose: '',
+    monthlyIncome: '',
     monthlyDebtPayments: '',
-    creditScore: '',
-    bankAccountAge: ''
+    bankAccountAge: '',
+    previousLoansCount: '',
+    latePayments: '',
+    creditScore: ''
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const totalSteps = 4;
+  const totalSteps = 3;
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   const validateField = (name: string, value: string): string => {
@@ -54,8 +60,18 @@ const LoanApplicationForm = () => {
         return age < 18 || age > 75 ? 'Age must be between 18 and 75' : '';
       case 'annualIncome':
         return parseFloat(value.replace(/[,$]/g, '')) <= 0 ? 'Please enter a valid income' : '';
+      case 'monthlyIncome':
+        return parseFloat(value.replace(/[,$]/g, '')) <= 0 ? 'Please enter a valid monthly income' : '';
       case 'loanAmount':
         return parseFloat(value.replace(/[,$]/g, '')) <= 0 ? 'Please enter a valid loan amount' : '';
+      case 'employmentDuration':
+        return parseFloat(value) < 0 ? 'Employment duration must be 0 or greater' : '';
+      case 'bankAccountAge':
+        return parseFloat(value) <= 0 ? 'Bank account age must be greater than 0' : '';
+      case 'previousLoansCount':
+        return parseFloat(value) < 0 ? 'Previous loans count must be 0 or greater' : '';
+      case 'latePayments':
+        return parseFloat(value) < 0 ? 'Late payments must be 0 or greater' : '';
       case 'creditScore':
         if (value) {
           const score = parseInt(value);
@@ -88,10 +104,9 @@ const LoanApplicationForm = () => {
 
   const getFieldsForStep = (step: number): string[] => {
     switch (step) {
-      case 1: return ['fullName', 'age', 'annualIncome'];
-      case 2: return ['employmentType', 'employmentDuration'];
-      case 3: return ['loanAmount', 'loanPurpose'];
-      case 4: return ['monthlyDebtPayments', 'bankAccountAge'];
+      case 1: return ['fullName', 'age', 'annualIncome', 'employmentType', 'creditScore'];
+      case 2: return ['loanAmount', 'loanPurpose'];
+      case 3: return ['monthlyIncome', 'monthlyDebtPayments', 'employmentDuration', 'bankAccountAge', 'previousLoansCount', 'latePayments'];
       default: return [];
     }
   };
@@ -123,13 +138,16 @@ const LoanApplicationForm = () => {
         fullName: formData.fullName,
         age: parseInt(formData.age),
         annualIncome: formData.annualIncome,
+        monthlyIncome: formData.monthlyIncome,
         employmentType: formData.employmentType,
         employmentDuration: parseInt(formData.employmentDuration),
         loanAmount: formData.loanAmount,
         loanPurpose: formData.loanPurpose,
         monthlyDebtPayments: formData.monthlyDebtPayments,
+        bankAccountAge: parseInt(formData.bankAccountAge),
+        previousLoansCount: parseInt(formData.previousLoansCount),
+        latePayments: parseInt(formData.latePayments),
         creditScore: formData.creditScore ? parseInt(formData.creditScore) : null,
-        bankAccountAge: formData.bankAccountAge,
         submissionDate: new Date().toISOString()
       };
 
@@ -148,7 +166,6 @@ const LoanApplicationForm = () => {
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting application:', error);
-      // You could add error handling here
     } finally {
       setIsSubmitting(false);
     }
@@ -254,18 +271,7 @@ const LoanApplicationForm = () => {
                 />
                 {errors.annualIncome && <p className="text-sm text-destructive mt-1">{errors.annualIncome}</p>}
               </div>
-            </div>
-          </div>
-        )}
 
-        {currentStep === 2 && (
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-6">
-              <Building className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-semibold text-primary">Employment Details</h3>
-            </div>
-            
-            <div className="space-y-4">
               <div>
                 <Label htmlFor="employmentType" className="text-sm font-medium text-foreground">Employment Type</Label>
                 <Select value={formData.employmentType} onValueChange={(value) => handleInputChange('employmentType', value)}>
@@ -284,89 +290,6 @@ const LoanApplicationForm = () => {
               </div>
 
               <div>
-                <Label htmlFor="employmentDuration" className="text-sm font-medium text-foreground">Employment Duration (months)</Label>
-                <Input
-                  id="employmentDuration"
-                  type="number"
-                  min="0"
-                  value={formData.employmentDuration}
-                  onChange={(e) => handleInputChange('employmentDuration', e.target.value)}
-                  className={`mt-1 ${errors.employmentDuration ? 'border-destructive' : ''}`}
-                  placeholder="24"
-                />
-                {errors.employmentDuration && <p className="text-sm text-destructive mt-1">{errors.employmentDuration}</p>}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 3 && (
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-6">
-              <DollarSign className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-semibold text-primary">Loan Requirements</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="loanAmount" className="text-sm font-medium text-foreground">Loan Amount Requested</Label>
-                <Input
-                  id="loanAmount"
-                  value={formData.loanAmount}
-                  onChange={(e) => {
-                    const formatted = formatCurrency(e.target.value);
-                    handleInputChange('loanAmount', formatted);
-                  }}
-                  className={`mt-1 ${errors.loanAmount ? 'border-destructive' : ''}`}
-                  placeholder="$25,000"
-                />
-                {errors.loanAmount && <p className="text-sm text-destructive mt-1">{errors.loanAmount}</p>}
-              </div>
-
-              <div>
-                <Label htmlFor="loanPurpose" className="text-sm font-medium text-foreground">Loan Purpose</Label>
-                <Select value={formData.loanPurpose} onValueChange={(value) => handleInputChange('loanPurpose', value)}>
-                  <SelectTrigger className={`mt-1 ${errors.loanPurpose ? 'border-destructive' : ''}`}>
-                    <SelectValue placeholder="Select loan purpose" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Home">Home</SelectItem>
-                    <SelectItem value="Auto">Auto</SelectItem>
-                    <SelectItem value="Personal">Personal</SelectItem>
-                    <SelectItem value="Business">Business</SelectItem>
-                    <SelectItem value="Education">Education</SelectItem>
-                  </SelectContent>
-                </Select>
-                {errors.loanPurpose && <p className="text-sm text-destructive mt-1">{errors.loanPurpose}</p>}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 4 && (
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-6">
-              <FileText className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-semibold text-primary">Financial Profile</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="monthlyDebtPayments" className="text-sm font-medium text-foreground">Current Monthly Debt Payments</Label>
-                <Input
-                  id="monthlyDebtPayments"
-                  value={formData.monthlyDebtPayments}
-                  onChange={(e) => {
-                    const formatted = formatCurrency(e.target.value);
-                    handleInputChange('monthlyDebtPayments', formatted);
-                  }}
-                  className={`mt-1 ${errors.monthlyDebtPayments ? 'border-destructive' : ''}`}
-                  placeholder="$1,200"
-                />
-                {errors.monthlyDebtPayments && <p className="text-sm text-destructive mt-1">{errors.monthlyDebtPayments}</p>}
-              </div>
-
-              <div>
                 <Label htmlFor="creditScore" className="text-sm font-medium text-foreground">Credit Score (Optional - We'll verify this)</Label>
                 <Input
                   id="creditScore"
@@ -381,21 +304,145 @@ const LoanApplicationForm = () => {
                 {errors.creditScore && <p className="text-sm text-destructive mt-1">{errors.creditScore}</p>}
                 <p className="text-sm text-muted-foreground mt-1">Don't worry - we'll verify this during our transparent process</p>
               </div>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 2 && (
+          <div className="space-y-6">
+            <div className="flex items-center gap-3 mb-6">
+              <DollarSign className="w-6 h-6 text-primary" />
+              <h3 className="text-xl font-semibold text-primary">Loan Details</h3>
+            </div>
+            
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="loanAmount" className="text-sm font-medium text-foreground">Loan Amount Requested</Label>
+                <Input
+                  id="loanAmount"
+                  value={formData.loanAmount}
+                  onChange={(e) => {
+                    const formatted = formatCurrency(e.target.value);
+                    handleInputChange('loanAmount', formatted);
+                  }}
+                  className={`mt-1 ${errors.loanAmount ? 'border-destructive' : ''}`}
+                  placeholder="$250,000"
+                />
+                {errors.loanAmount && <p className="text-sm text-destructive mt-1">{errors.loanAmount}</p>}
+              </div>
 
               <div>
-                <Label htmlFor="bankAccountAge" className="text-sm font-medium text-foreground">Bank Account Age</Label>
-                <Select value={formData.bankAccountAge} onValueChange={(value) => handleInputChange('bankAccountAge', value)}>
-                  <SelectTrigger className={`mt-1 ${errors.bankAccountAge ? 'border-destructive' : ''}`}>
-                    <SelectValue placeholder="Select account age" />
+                <Label htmlFor="loanPurpose" className="text-sm font-medium text-foreground">Loan Purpose</Label>
+                <Select value={formData.loanPurpose} onValueChange={(value) => handleInputChange('loanPurpose', value)}>
+                  <SelectTrigger className={`mt-1 ${errors.loanPurpose ? 'border-destructive' : ''}`}>
+                    <SelectValue placeholder="Select loan purpose" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Less than 1 year">Less than 1 year</SelectItem>
-                    <SelectItem value="1-2 years">1-2 years</SelectItem>
-                    <SelectItem value="2-5 years">2-5 years</SelectItem>
-                    <SelectItem value="5+ years">5+ years</SelectItem>
+                    <SelectItem value="Home Purchase">Home Purchase</SelectItem>
+                    <SelectItem value="Refinance">Refinance</SelectItem>
+                    <SelectItem value="Business">Business</SelectItem>
+                    <SelectItem value="Personal">Personal</SelectItem>
+                    <SelectItem value="Investment Property">Investment Property</SelectItem>
                   </SelectContent>
                 </Select>
+                {errors.loanPurpose && <p className="text-sm text-destructive mt-1">{errors.loanPurpose}</p>}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 3 && (
+          <div className="space-y-6">
+            <div className="flex items-center gap-3 mb-6">
+              <FileText className="w-6 h-6 text-primary" />
+              <h3 className="text-xl font-semibold text-primary">Financial Assessment</h3>
+            </div>
+            
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="monthlyIncome" className="text-sm font-medium text-foreground">Monthly Income</Label>
+                <Input
+                  id="monthlyIncome"
+                  value={formData.monthlyIncome}
+                  onChange={(e) => {
+                    const formatted = formatCurrency(e.target.value);
+                    handleInputChange('monthlyIncome', formatted);
+                  }}
+                  className={`mt-1 ${errors.monthlyIncome ? 'border-destructive' : ''}`}
+                  placeholder="$6,250"
+                />
+                {errors.monthlyIncome && <p className="text-sm text-destructive mt-1">{errors.monthlyIncome}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="monthlyDebtPayments" className="text-sm font-medium text-foreground">Existing Monthly Debt</Label>
+                <Input
+                  id="monthlyDebtPayments"
+                  value={formData.monthlyDebtPayments}
+                  onChange={(e) => {
+                    const formatted = formatCurrency(e.target.value);
+                    handleInputChange('monthlyDebtPayments', formatted);
+                  }}
+                  className={`mt-1 ${errors.monthlyDebtPayments ? 'border-destructive' : ''}`}
+                  placeholder="$1,500"
+                />
+                {errors.monthlyDebtPayments && <p className="text-sm text-destructive mt-1">{errors.monthlyDebtPayments}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="employmentDuration" className="text-sm font-medium text-foreground">Employment Duration (months)</Label>
+                <Input
+                  id="employmentDuration"
+                  type="number"
+                  min="0"
+                  value={formData.employmentDuration}
+                  onChange={(e) => handleInputChange('employmentDuration', e.target.value)}
+                  className={`mt-1 ${errors.employmentDuration ? 'border-destructive' : ''}`}
+                  placeholder="36"
+                />
+                {errors.employmentDuration && <p className="text-sm text-destructive mt-1">{errors.employmentDuration}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="bankAccountAge" className="text-sm font-medium text-foreground">Bank Account Age (months)</Label>
+                <Input
+                  id="bankAccountAge"
+                  type="number"
+                  min="1"
+                  value={formData.bankAccountAge}
+                  onChange={(e) => handleInputChange('bankAccountAge', e.target.value)}
+                  className={`mt-1 ${errors.bankAccountAge ? 'border-destructive' : ''}`}
+                  placeholder="48"
+                />
                 {errors.bankAccountAge && <p className="text-sm text-destructive mt-1">{errors.bankAccountAge}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="previousLoansCount" className="text-sm font-medium text-foreground">Previous Loans Count</Label>
+                <Input
+                  id="previousLoansCount"
+                  type="number"
+                  min="0"
+                  value={formData.previousLoansCount}
+                  onChange={(e) => handleInputChange('previousLoansCount', e.target.value)}
+                  className={`mt-1 ${errors.previousLoansCount ? 'border-destructive' : ''}`}
+                  placeholder="2"
+                />
+                {errors.previousLoansCount && <p className="text-sm text-destructive mt-1">{errors.previousLoansCount}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="latePayments" className="text-sm font-medium text-foreground">Late Payments in Last 12 Months</Label>
+                <Input
+                  id="latePayments"
+                  type="number"
+                  min="0"
+                  value={formData.latePayments}
+                  onChange={(e) => handleInputChange('latePayments', e.target.value)}
+                  className={`mt-1 ${errors.latePayments ? 'border-destructive' : ''}`}
+                  placeholder="0"
+                />
+                {errors.latePayments && <p className="text-sm text-destructive mt-1">{errors.latePayments}</p>}
               </div>
             </div>
           </div>
