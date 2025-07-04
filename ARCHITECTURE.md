@@ -151,7 +151,7 @@ const sectionPattern = /<h3>(.*?)<\/h3>\s*<p>(.*?)<\/p>/gs;
 // - Next Steps
 // - Stakeholder Actions
 
-Phase 4: Integration & Testing
+### **Phase 4: Integration & Testing**
 Debugging Prompts Used:
 
 The webhook is receiving data but the JSON formatting seems to be causing issues. 
@@ -163,7 +163,7 @@ The regex pattern needs to handle the specific HTML format from the Lyzr agents.
 Need to ensure the email formatting includes all parsed sections in a professional layout 
 suitable for stakeholder communication.
 
-System Testing Approach:
+**System Testing Approach:**
 
 Form Submission Testing: Verified 13-field data capture
 Agent Response Testing: Confirmed HTML output format
@@ -171,12 +171,12 @@ Parser Validation: Tested regex extraction patterns
 Email Delivery Testing: Verified stakeholder notification
 End-to-End Testing: Complete pipeline validation
 
-Data Flow Architecture
+#### Data Flow Architecture
 Request Flow:
 
 User Input → Lovable Form → Make.com Webhook → Lyzr Risk Agent → Lyzr Decision Agent → Text Parser → Gmail → Stakeholder
 
-Data Transformations:
+#### Data Transformations:
 
 Form Data: 13 fields → JSON payload
 Risk Analysis: JSON → HTML formatted assessment
@@ -185,37 +185,37 @@ Text Extraction: HTML → Structured sections
 Email Composition: Sections → Professional communication
 
 
-🛠️ Technical Implementation Details
-Frontend (Lovable/React)
+#### **🛠️ Technical Implementation Details**
+**Frontend (Lovable/React)**
 
-Technology: React + TypeScript + Tailwind CSS
-Architecture: Component-based with form validation
-Integration: RESTful webhook submission
-Styling: Professional jade/green theme
+  Technology: React + TypeScript + Tailwind CSS
+  Architecture: Component-based with form validation
+  Integration: RESTful webhook submission
+  Styling: Professional jade/green theme
 
-AI Agents (Lyzr)
+**AI Agents (Lyzr)**
 
-Risk Intelligence Agent ID: 6863ee3906bcd0ccc1a73458
-Decision Explainer Agent ID: 68640158c781c1fdd3a67701
-Output Format: Structured HTML sections
-Processing: Sequential agent orchestration
+  Risk Intelligence Agent ID: 6863ee3906bcd0ccc1a73458
+  Decision Explainer Agent ID: 68640158c781c1fdd3a67701
+  Output Format: Structured HTML sections
+  Processing: Sequential agent orchestration
 
-Workflow Engine (Make.com)
+**Workflow Engine (Make.com)**
 
-Architecture: 5-module pipeline
-Trigger: Webhook receiver
-Processing: Dual agent calls + text parsing
-Output: Gmail stakeholder notification
+  Architecture: 5-module pipeline
+  Trigger: Webhook receiver
+  Processing: Dual agent calls + text parsing
+  Output: Gmail stakeholder notification
 
-Communication (Gmail API)
+**Communication (Gmail API)**
 
-Integration: Make.com Gmail module
-Format: Professional email template
-Recipients: Configurable stakeholder list
-Content: Parsed agent analysis
+  Integration: Make.com Gmail module
+  Format: Professional email template
+  Recipients: Configurable stakeholder list
+  Content: Parsed agent analysis
 
 
-📊 System Performance
+#### **📊 System Performance**
 Current Metrics:
 
 ✅ Response Time: < 30 seconds end-to-end
@@ -223,39 +223,39 @@ Current Metrics:
 ✅ Agent Accuracy: Consistent structured output
 ✅ Email Delivery: Confirmed stakeholder receipt
 
-Scalability Considerations:
+**Scalability Considerations:**
 
-Make.com Limits: Operations per month
-Lyzr Agents: API rate limits
-Gmail Integration: Daily send limits
-Frontend Hosting: Lovable platform capacity
+  Make.com Limits: Operations per month
+  Lyzr Agents: API rate limits
+  Gmail Integration: Daily send limits
+  Frontend Hosting: Lovable platform capacity
 
 
-🔐 Security & Configuration
+#### **🔐 Security & Configuration**
 API Keys Required:
 
-OpenAI API: For Lyzr agent processing
-Make.com: Workflow orchestration
-Gmail API: Email integration
-Lovable: Frontend hosting
+  OpenAI API: For Lyzr agent processing
+  Make.com: Workflow orchestration
+  Gmail API: Email integration
+  Lovable: Frontend hosting
 
-Data Handling:
+**Data Handling:**
 
-Form Data: Transmitted via secure webhook
-Processing: Temporary storage in Make.com
-Output: Email delivery, no persistent storage
-Privacy: No long-term data retention
+  Form Data: Transmitted via secure webhook
+  Processing: Temporary storage in Make.com
+  Output: Email delivery, no persistent storage
+  Privacy: No long-term data retention
 
 
-🚀 Deployment Architecture
-Current Setup:
+#### **🚀 Deployment Architecture**
+**Current Setup:**
+  
+  Frontend: Hosted on Lovable platform
+  Workflow: Running on Make.com infrastructure
+  Agents: Deployed on Lyzr platform
+  Communication: Gmail API integration
 
-Frontend: Hosted on Lovable platform
-Workflow: Running on Make.com infrastructure
-Agents: Deployed on Lyzr platform
-Communication: Gmail API integration
-
-Future Enhancements:
+### **Future Enhancements:**
 
 Database: Supabase integration for persistence
 Analytics: Dashboard for processing metrics
@@ -263,17 +263,17 @@ Scaling: Enhanced error handling and retries
 Security: Advanced authentication and encryption
 
 
-📈 Success Metrics
+#### **📈 Success Metrics**
 This low-code development approach achieved:
 
-⚡ Rapid Development: Complete system in development timeframe
+**⚡ Rapid Development: Complete system in development timeframe**
 🔧 No Traditional Coding: Built entirely through prompts and integrations
 🎯 Professional Quality: Enterprise-grade output and presentation
 🔄 Full Automation: End-to-end processing without manual intervention
 📊 Scalable Architecture: Ready for production deployment
 
 
-💡 Key Learnings
+### **💡 Key Learnings**
 Prompt Engineering Insights:
 
 Specificity Matters: Detailed instructions produce better agent outputs
