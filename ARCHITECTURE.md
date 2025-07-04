@@ -151,6 +151,7 @@ const sectionPattern = /<h3>(.*?)<\/h3>\s*<p>(.*?)<\/p>/gs;
 // - Next Steps
 // - Stakeholder Actions
 
+```markdown
 ### **Phase 4: Integration & Testing**
 Debugging Prompts Used:
 
