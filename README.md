@@ -6,8 +6,11 @@
 
 An enterprise-grade AI-powered loan processing pipeline that combines multiple intelligent agents, workflow automation, and modern web technologies to provide sophisticated risk assessment and automated stakeholder communication.
 
-**Live Demo**: [https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821](https://lovable.dev/projects/7bf7d627-39e5-48bf-a794-e3d36ef3f821)
+**System Demonstration**: View the complete workflow in action through our documentation and demo video.
 
+**🎬 Video Demo**: [Your demo video link]
+**📱 Frontend Preview**: The loan application interface is available for viewing at the Lovable URL above
+**⚠️ Note**: The live processing system is for demonstration purposes. Please refer to the documentation for implementation details.
 ## 🏗️ System Architecture
 
 Frontend (Lovable/React) → Make.com Workflow → Lyzr AI Agents → Email Integration
