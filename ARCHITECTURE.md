@@ -151,10 +151,11 @@ const sectionPattern = /<h3>(.*?)<\/h3>\s*<p>(.*?)<\/p>/gs;
 // - Next Steps
 // - Stakeholder Actions
 
-```markdown
-### **Phase 4: Integration & Testing**
-Debugging Prompts Used:
+```
+---
 
+#### **Phase 4: Integration & Testing**
+**Debugging Prompts Used:**
 The webhook is receiving data but the JSON formatting seems to be causing issues. 
 Can you help debug the HTTP request format for the Lyzr API integration?
 
@@ -172,6 +173,8 @@ Parser Validation: Tested regex extraction patterns
 Email Delivery Testing: Verified stakeholder notification
 End-to-End Testing: Complete pipeline validation
 
+---
+
 #### Data Flow Architecture
 Request Flow:
 
@@ -185,6 +188,7 @@ Decision Analysis: JSON → HTML formatted recommendations
 Text Extraction: HTML → Structured sections
 Email Composition: Sections → Professional communication
 
+---
 
 #### **🛠️ Technical Implementation Details**
 **Frontend (Lovable/React)**
@@ -215,6 +219,7 @@ Email Composition: Sections → Professional communication
   Recipients: Configurable stakeholder list
   Content: Parsed agent analysis
 
+---
 
 #### **📊 System Performance**
 Current Metrics:
@@ -275,14 +280,14 @@ This low-code development approach achieved:
 
 
 ### **💡 Key Learnings**
-Prompt Engineering Insights:
-
+**Prompt Engineering Insights:
+**
 Specificity Matters: Detailed instructions produce better agent outputs
 Output Formatting: Structured HTML requirements ensure consistent parsing
 Iterative Refinement: Testing and adjusting prompts improves quality
 Context Preservation: Maintaining agent role clarity throughout interactions
 
-Integration Patterns:
+**Integration Patterns:**
 
 Webhook Design: Clean JSON payloads for reliable processing
 Sequential Processing: Logical agent orchestration for complex analysis
