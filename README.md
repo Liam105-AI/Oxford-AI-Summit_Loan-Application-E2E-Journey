@@ -14,9 +14,11 @@ Lyzr Agent Demo - [Core Agent Functionality](https://youtu.be/KCvDQ6NYyCw)
 
 Complete System Demo - [End-to-End Workflow](https://youtu.be/VV7G5TYYaAo) 
 
-Font End Preview - [Lovable Front End Preview](https://preview--jade-loan-collaborate-now.lovable.app/)
+Live Demo - [Loan Application Frontend](https://preview--jade-loan-collaborate-now.lovable.app/)
 
-**📱 Frontend Preview**: The loan application interface is available for viewing at the Lovable URL above, but no emails will be triggered at this stage.
+*Note: Demo mode - form submissions are disabled to protect API credits*
+
+**📱 Frontend Preview**: The loan application interface is available for viewing at the Lovable URL above. 
 
 **⚠️ Note**: The live processing system is for demonstration purposes. Please refer to the documentation for implementation details.
 
