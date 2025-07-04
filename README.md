@@ -4,7 +4,7 @@
 
 ## 🌟 Overview
 
-An enterprise-grade AI-powered loan processing pipeline that combines multiple intelligent agents, workflow automation, and modern web technologies to provide sophisticated risk assessment and automated stakeholder communication.
+An AI-powered loan processing pipeline that combines multiple intelligent agents, workflow automation, and modern web technologies to provide sophisticated risk assessment and automated stakeholder communication.
 
 **System Demonstration**: View the complete workflow in action through our documentation and demo video.
 
