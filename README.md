@@ -68,7 +68,7 @@ Frontend (Lovable/React) → Make.com Workflow → Lyzr AI Agents → Email Inte
 - Stakeholder action items
 - Professional communication formatting
 
-## 🛠️ Technical Implementation
+## 🛠️ Technical Implementation (Leveraging in-built functionality within Lovable and Make.com)
 
 - **Frontend**: Modern React with TypeScript for type safety
 - **Styling**: Tailwind CSS for responsive, professional design
@@ -86,8 +86,8 @@ Frontend (Lovable/React) → Make.com Workflow → Lyzr AI Agents → Email Inte
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js & npm
 - Make.com account with workflow access
+- Lovable account
 - Lyzr account with agent access
 - Gmail account for notifications
 
@@ -106,4 +106,4 @@ npm run dev
 - Mobile application version
 
 ### **Developer**
-Built as part of the Oxford AI Summit Challenge by Liam - showcasing enterprise-grade multi-agent system development.
+Built as part of the Oxford AI Summit Challenge by Liam - showcasing multi-agent system development.
