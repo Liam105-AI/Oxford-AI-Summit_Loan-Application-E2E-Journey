@@ -31,7 +31,7 @@ Built a loan processing system using orchestrated AI agents to understand when t
 - **Dual AI Agent System**:
   - **Risk Intelligence Agent** (ID: 6863ee3906bcd0ccc1a73458) - Analyses financial risk factors
   - **Decision Explainer Agent** (ID: 68640158c781c1fdd3a67701) - Provides reasoning and next steps
-- **Real-time Processing** - Immediate analysis and stakeholder notification
+- **Automated Processing** - Immediate analysis and stakeholder notification
 - **Structured Output** - Parsed analysis with confidence scoring
 - **Automated Communication** - Professional email delivery to stakeholders
 
@@ -86,12 +86,11 @@ This is a Lovable-hosted demo. To explore:
 
 *Note: This is a demo system, not deployable code*
 
-### Future Enhancements
-- Supabase database integration for application persistence
-- Advanced analytics dashboard
-- Multi-language support
-- Enhanced security features
-- Mobile application version
+### Potential Extensions for Real Implementation
+- Database persistence for application data (Supabase)
+- Enhanced error handling and monitoring
+- User authentication and authorization
+- Production-grade security implementation
 
 ### **Developer**
 Built as part of the Oxford AI Summit Challenge by Liam - showcasing multi-agent system development.
