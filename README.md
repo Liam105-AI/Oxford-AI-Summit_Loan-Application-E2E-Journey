@@ -1,5 +1,7 @@
 # 🤖 Multi-Agent Loan Processing System
 
+*One-week hackathon exploration built to understand agent orchestration*
+
 Built a loan processing system using orchestrated AI agents to understand when this approach actually makes sense versus traditional automation.
 
 **Context**: Following Oxford AI Summit 2025's focus on "Autonomous AI Agents: Learning from deployments," I built this to cut through marketing and understand real-world applicability of agents.
@@ -36,16 +38,14 @@ Built a loan processing system using orchestrated AI agents to understand when t
 **AI Agent Capabilities**
 
 1. **Risk Intelligence Agent**
-- Financial data analysis
-- Risk factor identification
-- Confidence scoring
-- Regulatory compliance checking
+- Basic financial data evaluation
+- Simple risk factor assessment  
+- Pattern recognition from application data
 
 2. **Decision Explainer Agent**
-- Clear reasoning articulation
-- Next steps recommendation
-- Stakeholder action items
-- Professional communication formatting
+- Clear reasoning for demo scenarios
+- Next steps recommendations
+- Stakeholder communication formatting
 
 ## Workflow Process
 
@@ -79,13 +79,13 @@ See `/business-context/what-i-learned.md` for honest assessment of leveraging ag
 - Lyzr account with agent access
 - Gmail account for notifications
 
-### Installation
-```bash
-git clone https://github.com/Liam105-AI/Oxford-AI-Summit_Loan-Application-E2E-Journey.git
-cd Oxford-AI-Summit_Loan-Application-E2E-Journey
-npm install
-npm run dev
-```
+### Demo Access
+This is a Lovable-hosted demo. To explore:
+1. Visit the live demo link above
+2. Review the workflow documentation in `/oxford-submission/`
+
+*Note: This is a demo system, not deployable code*
+
 ### Future Enhancements
 - Supabase database integration for application persistence
 - Advanced analytics dashboard
