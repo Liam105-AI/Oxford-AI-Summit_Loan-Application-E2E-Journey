@@ -1,7 +1,5 @@
 # 🤖 Multi-Agent Loan Processing System
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-97.1%25-blue)]() [![CSS](https://img.shields.io/badge/CSS-2.0%25-1572B6)]() [![Deployed](https://img.shields.io/badge/Status-Live-brightgreen)]()
-
 Built a loan processing system using orchestrated AI agents to understand when this approach actually makes sense versus traditional automation.
 
 **Context**: Following Oxford AI Summit 2025's focus on "Autonomous AI Agents: Learning from deployments," I built this to cut through marketing and understand real-world applicability of agents.
@@ -73,13 +71,6 @@ Built a loan processing system using orchestrated AI agents to understand when t
 
 See `/business-context/` for detailed analysis of real-world application considerations.
 
-## System Status
-
-- ✅ **Fully Operational** - Complete end-to-end processing
-- ✅ **Tested** - Successfully processing loan applications
-- ✅ **Deployed** - Live on Lovable platform
-- ✅ **Email Integration** - Confirmed delivery to stakeholders
-
 ## Getting Started
 
 ### Prerequisites
@@ -90,8 +81,8 @@ See `/business-context/` for detailed analysis of real-world application conside
 
 ### Installation
 ```bash
-git clone https://github.com/Liam105-AI/jade-loan-collaborate-now.git
-cd jade-loan-collaborate-now
+git clone https://github.com/Liam105-AI/Oxford-AI-Summit_Loan-Application-E2E-Journey.git
+cd Oxford-AI-Summit_Loan-Application-E2E-Journey
 npm install
 npm run dev
 ```
