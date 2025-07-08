@@ -58,8 +58,8 @@ Built a loan processing system using orchestrated AI agents to understand when t
 
 ## Repository Structure
 
-- `/oxford-submission/` - Technical implementation and academic submission materials
-- `/business-context/` - Strategic analysis of when and how this approach adds genuine business value
+- `/oxford-submission/` - Technical implementation and academic submission materials  
+- `/business-context/` - What I learned building this system and when agents actually make sense vs. hype
 
 ## What I Learned
 
@@ -69,7 +69,7 @@ Built a loan processing system using orchestrated AI agents to understand when t
 
 - **Implementation reality**: Technical complexity is moderate but AI assisted workflows lower barriers to entry; organisational complexity is high, and cost of iteration requires careful economic modelling
 
-See `/business-context/` for detailed analysis of real-world application considerations.
+See `/business-context/what-i-learned.md` for honest assessment of leveraging agents in this hackathon
 
 ## Getting Started
 
