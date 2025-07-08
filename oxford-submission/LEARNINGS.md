@@ -1,44 +1,77 @@
 # 💡 Key Learnings: Multi-Agent System Development
 
-## 🎓 **Technical Learnings:**
+## Technical Learnings
 
-### **Prompt Engineering Mastery:**
-- **Specificity drives quality**: Detailed agent instructions produce consistent outputs
-- **Output formatting matters**: Being aware of the output format, and clarity on how different tools work and parse information was key to orchestration
-- **Role clarity essential**: Clear agent personas and roles prevent capability confusion, or poor outputs. Particularly when i wanted my Decision Agent to both analyse and format it became a worse end output 
-- **Iterative refinement works**: Testing continuously and exploring where things break is a great approach for troubleshooting, it was difficult to isolate some challenges when i am trying to do too much simultaneously
+### Prompt Engineering Mastery
 
-### **Integration Patterns:**
-- **Sequential orchestration**: Logical agent chaining for complex analysis
-- **Text processing**: Regex patterns for extracting structured content was an interesting challenge, was important to prompt clearly and give references to help my prompting to be more effective to troubleshoot. 
+**Specificity drives quality**: Detailed agent instructions produce consistent outputs. Vague prompts led to inconsistent results, while specific role definitions and output format requirements ensured reliable performance.
 
-### **Low-Code Development:**
-- **Platform strengths**: Each tool (Lovable, Make.com, Lyzr) excels in specific areas
-- **Integration complexity**: Connecting platforms requires careful data flow design
-- **Rapid prototyping**: Visual workflows enable fast iteration and testing
+**Output formatting matters**: Understanding how different tools parse information was crucial for orchestration. HTML formatting requirements needed to be explicitly defined for successful text extraction.
 
-## 🚀 **Strategic Learnings:**
+**Role clarity essential**: Clear agent personas and roles prevent capability confusion. When I attempted to have the Decision Agent both analyze and format simultaneously, output quality degraded significantly.
 
-### **AI Agent Architecture:**
-- **Separation of concerns**: Specialised agents helped with testing and evaluating if things are working as expected, and led ultimately to cleaner results
-- **Clear handoff points**: Defined data flow prevents confusion and errors
-- **Scalable design**: Adding new agents or capabilities becomes straightforward when the roles are clear but not too rigid
+**Iterative refinement works**: Continuous testing and exploring failure points proved essential for troubleshooting. However, isolating specific challenges became difficult when attempting too many simultaneous changes.
 
-### **Business Application:**
-- **End-to-end thinking**: Complete workflows showed the importance of intentional design of agents and its relationship to the goal, and where everything doesnt need to be agents to get to an outcome i want
-- **Real-world constraints**: Processing time, reliability, and format requirements matter
-- **Measurable impact**: Clear success metrics enable evaluation and improvement
-- **Financial Awareness**: Going through this process highlighted the importance of understanding models, and experimenting as the iteration and testing can cost alot of credits, be interesting to understand how to scale this effectively
+### Integration Patterns
 
-## 🔮 **Future Applications:**
+**Sequential orchestration**: Logical agent chaining enables complex analysis workflows. The Risk → Decision → Communication sequence proved more reliable than parallel processing for this use case.
 
-### **Immediate Extensions:**
-- **Database integration**: Persistent storage for applications and analytics
-- **Enhanced security**: Authentication and encryption for production use
-- **Advanced analytics**: Dashboard for processing metrics and trends
+**Text processing complexity**: Regex patterns for extracting structured content presented unexpected challenges. Clear prompting with specific formatting examples improved reliability significantly.
 
-### **Advanced Capabilities:**
-- **Regulatory compliance**: Automated legal and regulatory checking
-- **Credit integration**: Real-time credit bureau API connections
-- **Risk modeling**: Machine learning integration for enhanced predictions
-- **Document processing**: OCR and document verification capabilities
+### Low-Code Development
+
+**Platform strengths**: Each tool (Lovable, Make.com, Lyzr) excels in specific areas. Understanding these strengths enables more effective solution architecture.
+
+**Integration complexity**: Connecting platforms requires careful data flow design. Simple connections often required complex mapping and transformation logic.
+
+**Rapid prototyping**: Visual workflows enable fast iteration and testing, significantly reducing development time compared to traditional coding approaches.
+
+## Strategic Learnings
+
+### AI Agent Architecture
+
+**Separation of concerns**: Specialized agents improved testing capabilities and ultimately produced cleaner results. Single-agent approaches proved less effective for complex multi-step processes.
+
+**Clear handoff points**: Defined data flow prevents confusion and errors. Ambiguous interfaces between agents led to processing failures.
+
+**Scalable design**: Adding new agents or capabilities becomes straightforward when roles are clear but not overly rigid. This architecture would support additional agents for compliance checking or credit verification.
+
+### Business Application
+
+**End-to-end thinking**: Complete workflows demonstrated the importance of intentional agent design and its relationship to business goals. Not every step requires AI agents to achieve desired outcomes.
+
+**Real-world constraints**: Processing time, reliability, and format requirements matter significantly in business contexts. Demo functionality differs substantially from production requirements.
+
+**Measurable impact**: Clear success metrics enable evaluation and improvement. Without defined metrics, it becomes impossible to assess agent effectiveness.
+
+**Financial awareness**: This process highlighted the importance of understanding model costs and iteration expenses. Testing and refinement can consume significant API credits, making cost-effective scaling a critical consideration for real deployments.
+
+## Future Applications
+
+### Immediate Extensions
+
+**Database integration**: Persistent storage for applications and analytics would enable historical analysis and trend identification.
+
+**Enhanced security**: Authentication and encryption for production use, including secure API key management and data protection protocols.
+
+**Advanced analytics**: Dashboard for processing metrics and trends, enabling continuous improvement of agent performance.
+
+### Advanced Capabilities
+
+**Regulatory compliance**: Automated legal and regulatory checking agents could ensure adherence to financial services regulations.
+
+**Credit integration**: Real-time credit bureau API connections would provide more accurate risk assessments.
+
+**Risk modeling**: Machine learning integration for enhanced predictions based on historical loan performance data.
+
+**Document processing**: OCR and document verification capabilities would enable automated document analysis and fraud detection.
+
+## Implementation Insights
+
+**Cost management**: Understanding token usage and API costs becomes crucial for sustainable scaling. Each agent interaction has associated costs that must be factored into business models.
+
+**Error handling**: Robust error handling and fallback mechanisms are essential for production deployment. Agents can fail or produce unexpected outputs, requiring comprehensive exception management.
+
+**Performance optimization**: Response time optimization requires careful consideration of sequential vs. parallel processing trade-offs based on specific use case requirements.
+
+**User experience**: Agent explanations must be designed for end-user comprehension, not just technical accuracy. The gap between AI reasoning and user understanding requires careful bridge design.
